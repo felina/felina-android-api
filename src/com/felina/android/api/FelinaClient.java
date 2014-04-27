@@ -3,9 +3,6 @@ package com.felina.android.api;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import org.apache.http.Header;
-import org.apache.http.message.BasicHeader;
-
 import android.content.Context;
 
 import com.felina.android.api.Constants.Params;
@@ -46,6 +43,14 @@ public class FelinaClient {
 		post("/login", params, responseHandler);
 	}
 	
+	public void register(String email, String pass, String name, AsyncHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put(Params.LOGIN_EMAIL, email);
+		params.put(Params.LOGIN_PASS, pass);
+		params.put(Params.REGISTER_NAME, name);
+		post("/register", params, responseHandler);
+	}
+	
 	public void logincheck(AsyncHttpResponseHandler responseHandler) {
 		get("/logincheck", null, responseHandler);
 	}
@@ -76,6 +81,16 @@ public class FelinaClient {
 		}
 		post("/img", params, responseHandler);
 		
+	}
+	
+	public void getImageList(AsyncHttpResponseHandler responseHandler) {
+		get("/images", null, responseHandler);
+	}
+	
+	public void getImage(String id, AsyncHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put(Params.IMG_ID, id);
+		get("/img", params, responseHandler);
 	}
 
 }
