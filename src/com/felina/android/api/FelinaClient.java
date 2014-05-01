@@ -19,7 +19,8 @@ import com.loopj.android.http.RequestParams;
 
 public class FelinaClient {
 	
-	private static String API_URL = "http://ec2-54-194-186-121.eu-west-1.compute.amazonaws.com:5000";
+	private static final String API_URL = "https://api.darwinapp.co:5000";
+//	private static String API_URL = "http://ec2-54-194-186-121.eu-west-1.compute.amazonaws.com:5000";
 //	private static final String API_URL = "http://nl.ks07.co.uk:5005";
 	private static AsyncHttpClient mClient = new AsyncHttpClient();
 	private static Context context;
