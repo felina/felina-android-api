@@ -116,10 +116,10 @@ public class FelinaClient {
 	 * @param email the email of the sub-user account.
 	 * @param responseHandler the callback to handle response.
 	 */
-	public void token(String email, AsyncHttpResponseHandler responseHandler) {
-		RequestParams params = new RequestParams();
+	public void token(String email, AsyncHttpResponseHandler responseHandler) throws JSONException, UnsupportedEncodingException {
+		JSONObject params = new JSONObject();
 		params.put(Params.LOGIN_EMAIL, email);
-		get("/token", params, responseHandler);
+		post("/token", new StringEntity(params.toString()), responseHandler);
 	}
 	
 	/**
